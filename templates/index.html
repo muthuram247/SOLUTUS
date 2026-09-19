@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SOLUTUS | Student Support</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>SOLUTUS</h1>
+    <p>From Problem to Resolution</p>
+    <a href="/admin">Admin Dashboard</a>
+</header>
+
+<main>
+
+<section class="hero">
+    <h2>Speak Up. Track It. Solve It.</h2>
+    <p>
+        Safely report college and hostel issues and track their progress.
+    </p>
+</section>
+
+<section class="card">
+
+    <h2>Report an Issue</h2>
+
+    <form id="complaintForm">
+
+        <label>Issue Title</label>
+        <input
+            type="text"
+            id="title"
+            placeholder="Example: Hostel water problem"
+            required
+        >
+
+        <label>Description</label>
+        <textarea
+            id="description"
+            placeholder="Describe your issue..."
+            required
+        ></textarea>
+
+        <label>Reporting Mode</label>
+
+        <select id="mode">
+            <option>Anonymous</option>
+            <option>Confidential</option>
+            <option>Identified</option>
+        </select>
+
+        <label>Location</label>
+
+        <input
+            type="text"
+            id="location"
+            placeholder="Example: Hostel Block A"
+        >
+
+        <button type="submit">
+            Submit Issue
+        </button>
+
+    </form>
+
+    <div id="result"></div>
+
+</section>
+
+<section class="card">
+
+    <h2>Track Your Issue</h2>
+
+    <input
+        type="number"
+        id="trackId"
+        placeholder="Enter Complaint ID"
+    >
+
+    <button onclick="trackComplaint()">
+        Track
+    </button>
+
+    <div id="trackingResult"></div>
+
+</section>
+
+</main>
+
+<script src="/static/script.js"></script>
+
+</body>
+</html>
