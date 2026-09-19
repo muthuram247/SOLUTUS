@@ -57,6 +57,65 @@ Student
 ## Project Status
 
 Prototype / Hackathon MVP
+# SOLUTUS
+
+## Core Workflow
+
+Student
+→ Issue Submission
+→ Smart Categorization
+→ Department Routing
+→ Action
+→ Status Tracking
+→ Resolution
+
+## Features
+
+- Anonymous, Confidential and Identified reporting
+- Automatic issue categorization
+- Complaint tracking
+- Admin dashboard
+- Status management
+- Digital-ready architecture for future outpass integration
+
+## Technology
+
+- Python
+- Flask
+- HTML
+- CSS
+- JavaScript
+- SQLite
+
+## Project Structure
+
+SOLUTUS/
+├── app.py
+├── requirements.txt
+├── .gitignore
+├── README.md
+├── templates/
+│   ├── index.html
+│   └── admin.html
+└── static/
+    ├── style.css
+    └── script.js
+
+## Team
+
+DaVinci
+
+## Track
+
+EduGen AI
+
+## Institution
+
+Dhanalakshmi Srinivasan Engineering College (Autonomous), Perambalur
+
+## Status
+
+Hackathon MVP
 
 ## Team
 
