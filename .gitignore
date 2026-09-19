@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+solutus.db
+.env
+.venv/
+venv/
