@@ -1,6 +1,4 @@
 # SOLUTUS
-AI-powered student platform for safely reporting, tracking, and resolving college and hostel issues.
-# SOLUTUS
 
 ### From Problem to Resolution
 
@@ -57,7 +55,6 @@ Student
 ## Project Status
 
 Prototype / Hackathon MVP
-# SOLUTUS
 
 ## Core Workflow
 
