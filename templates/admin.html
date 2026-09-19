@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SOLUTUS | Admin Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>SOLUTUS</h1>
+    <p>Admin Dashboard</p>
+    <a href="/">Student Portal</a>
+</header>
+
+<main>
+
+<section class="card">
+
+    <h2>Complaint Management</h2>
+
+    <div id="complaints">
+        Loading complaints...
+    </div>
+
+</section>
+
+</main>
+
+<script>
+
+async function loadComplaints() {
+
+    const response = await fetch("/complaints");
+    const complaints = await response.json();
+
+    const container = document.getElementById("complaints");
+
+    if (complaints.length === 0) {
+        container.innerHTML = "<p>No complaints submitted yet.</p>";
+        return;
+    }
+
+    container.innerHTML = "";
+
+    complaints.forEach(c => {
+
+        const item = document.createElement("div");
+
+        item.className = "complaint";
+
+        item.innerHTML = `
+            <h3>#${c.id} - ${c.title}</h3>
+
+            <p>${c.description}</p>
+
+            <p><strong>Category:</strong> ${c.category}</p>
+            <p><strong>Mode:</strong> ${c.mode}</p>
+            <p><strong>Location:</strong> ${c.location || "Not provided"}</p>
+            <p><strong>Submitted:</strong> ${c.created_at}</p>
+
+            <label>Status</label>
+
+            <select onchange="updateStatus(${c.id}, this.value)">
+
+                <option ${c.status === "Submitted" ? "selected" : ""}>
+                    Submitted
+                </option>
+
+                <option ${c.status === "Under Review" ? "selected" : ""}>
+                    Under Review
+                </option>
+
+                <option ${c.status === "In Progress" ? "selected" : ""}>
+                    In Progress
+                </option>
+
+                <option ${c.status === "Resolved" ? "selected" : ""}>
+                    Resolved
+                </option>
+
+            </select>
+
+        `;
+
+        container.appendChild(item);
+    });
+}
+
+
+async function updateStatus(id, status) {
+
+    await fetch(`/update/${id}`, {
+
+        method: "POST",
+
+        headers: {
+            "Content-Type": "application/json"
+        },
+
+        body: JSON.stringify({
+            status: status
+        })
+
+    });
+
+    alert("Status updated successfully.");
+
+    loadComplaints();
+}
+
+
+loadComplaints();
+
+</script>
+
+</body>
+</html>
